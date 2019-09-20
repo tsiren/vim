@@ -5,9 +5,10 @@ filetype plugin indent on
 "set tags=~/mytags
 colo dracula 
 set number
+let mapleader=","
 
 " replace tabs with spaces
-set expandtab
+"set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -35,7 +36,14 @@ autocmd VimLeave * silent !stty ixon
 
 
 " NERDTREE
-autocmd vimenter *  NERDTree
+autocmd vimenter * NERDTree
+" Move cursor to window 2 when opening
+autocmd VimEnter * exe 2 . "wincmd w"
+" autoclose nerdtree if only window left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+map <F9> :NERDTreeFind<CR>
+map <F12> :NERDTreeToggle<CR>
+
 
 " NEOCOMPLETE
 
@@ -124,5 +132,6 @@ let g:neocomplete#force_omni_input_patterns.python =
 \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 " alternative pattern: '\h\w*\|[^. \t]\.\w*'
 
-autocmd VimEnter * exe 2 . "wincmd w"
+
+" CTRL-P plugin
 set runtimepath^=~/.vim/pack/my-plugins/start/ctrlp.vim

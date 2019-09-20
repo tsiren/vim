@@ -1,0 +1,27 @@
+[submodule "pack/my-plugins/start/ctrl.vim"]
+	path = pack/my-plugins/start/ctrl.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "pack/my-plugins/start/nerdtree"]
+	path = pack/my-plugins/start/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "pack/my-plugins/start/dracula-theme"]
+	path = pack/my-plugins/start/dracula-theme
+	url = https://github.com/dracula/vim
+[submodule "pack/my-plugins/start/vim-go"]
+	path = pack/my-plugins/start/vim-go
+	url = https://github.com/fatih/vim-go.git
+[submodule "pack/my-plugins/start/vim-airline"]
+	path = pack/my-plugins/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule "pack/my-plugins/start/vim-terraform"]
+	path = pack/my-plugins/start/vim-terraform
+	url = https://github.com/hashivim/vim-terraform
+[submodule "pack/my-plugins/start/yaml-vim"]
+	path = pack/my-plugins/start/yaml-vim
+	url = https://github.com/mrk21/yaml-vim.git
+[submodule "pack/my-plugins/start/ctrlsf"]
+	path = pack/my-plugins/start/ctrlsf
+	url = https://github.com/dyng/ctrlsf.vim.git
+[submodule "pack/my-plugins/start/vim-fugitive"]
+	path = pack/my-plugins/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive

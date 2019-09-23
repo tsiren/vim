@@ -17,3 +17,6 @@
 [submodule "pack/my-plugins/start/dracula-theme"]
 	path = pack/my-plugins/start/dracula-theme
 	url = https://github.com/dracula/vim
+[submodule "pack/my-plugins/start/vim-go"]
+	path = pack/my-plugins/start/vim-go
+	url = https://github.com/fatih/vim-go.git

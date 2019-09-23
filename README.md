@@ -1,4 +1,4 @@
-##Installation
+## Installation
 ```
 cd ~/
 git clone --recursive https://github.com/tsiren/vim .vim

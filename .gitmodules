@@ -14,3 +14,6 @@
 [submodule "pack/my-plugins/start/jedi-vim"]
 	path = pack/my-plugins/start/jedi-vim
 	url = https://github.com/davidhalter/jedi-vim.git
+[submodule "pack/my-plugins/start/dracula-theme"]
+	path = pack/my-plugins/start/dracula-theme
+	url = https://github.com/dracula/vim

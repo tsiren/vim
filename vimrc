@@ -3,6 +3,7 @@ filetype plugin indent on
 
 " GENERIC
 "set tags=~/mytags
+packadd! dracula-theme
 colo dracula 
 set number
 let mapleader=","

@@ -5,6 +5,8 @@ ln -sf ~/.vim/vimrc ~/.vimrc
 ```
 
 ## Update
+```
 git submodule update --remote --recursive
 git commit
+```
 

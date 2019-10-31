@@ -43,6 +43,7 @@ autocmd VimEnter * exe 2 . "wincmd w"
 " autoclose nerdtree if only window left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <F9> :NERDTreeFind<CR>
+map <F8> :NERDTreeRefreshRoot<CR>
 map <F12> :NERDTreeToggle<CR>
 
 
@@ -136,3 +137,5 @@ let g:neocomplete#force_omni_input_patterns.python =
 
 " CTRL-P plugin
 set runtimepath^=~/.vim/pack/my-plugins/start/ctrlp.vim
+
+let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|node_modules)$'

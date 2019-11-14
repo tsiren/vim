@@ -9,10 +9,14 @@ set number
 let mapleader=","
 
 " replace tabs with spaces
-"set expandtab
+set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+
+" specific file types
+autocmd Filetype yaml setlocal shiftwidth=2 tabstop=2
+autocmd Filetype go setlocal noexpandtab
 
 " set auto-indenting on for programming
 set ai
@@ -35,6 +39,8 @@ silent !stty -ixon
 " Restore default behaviour when leaving Vim.
 autocmd VimLeave * silent !stty ixon
 
+" Synchronize unnamed register with clipboard
+set clipboard^=unnamed,unnamedplus
 
 " NERDTREE
 autocmd vimenter * NERDTree

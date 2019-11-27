@@ -6,6 +6,7 @@ filetype plugin indent on
 packadd! dracula-theme
 colo dracula 
 set number
+set hlsearch
 let mapleader=","
 
 " replace tabs with spaces
@@ -16,6 +17,7 @@ set softtabstop=4
 
 " specific file types
 autocmd Filetype yaml setlocal shiftwidth=2 tabstop=2
+autocmd Filetype yml setlocal shiftwidth=2 tabstop=2
 autocmd Filetype go setlocal noexpandtab
 
 " set auto-indenting on for programming
@@ -145,3 +147,4 @@ let g:neocomplete#force_omni_input_patterns.python =
 set runtimepath^=~/.vim/pack/my-plugins/start/ctrlp.vim
 
 let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|node_modules)$'
+let g:ctrlp_show_hidden = 1

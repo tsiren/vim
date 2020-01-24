@@ -7,6 +7,7 @@ packadd! dracula-theme
 colo dracula 
 set number
 set hlsearch
+set hidden
 let mapleader=","
 
 " replace tabs with spaces

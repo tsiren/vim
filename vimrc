@@ -7,8 +7,11 @@ packadd! dracula-theme
 colo dracula 
 set number
 set hlsearch
+" Enable jumplist when file has been changed
 set hidden
 let mapleader=","
+" Enable mouse
+set mouse=a
 
 " replace tabs with spaces
 set expandtab

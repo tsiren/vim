@@ -152,3 +152,13 @@ set runtimepath^=~/.vim/pack/my-plugins/start/ctrlp.vim
 
 let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|node_modules)$'
 let g:ctrlp_show_hidden = 1
+" Use ag as ctrlp backend, which is faster and allows to use .agignore files
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+" Fix vim-go GoCallers to search subpackages
+"function! s:go_guru_scope_from_git_root()
+"  let gitroot = system("git rev-parse --show-toplevel | tr -d '\n'")
+"  let pattern = escape(go#util#gopath() . "/src/", '\ /')
+"  return substitute(gitroot, pattern, "", "") . "/... -vendor/"
+"endfunction
+"
+"au FileType go silent exe "GoGuruScope " . s:go_guru_scope_from_git_root()

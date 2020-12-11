@@ -29,3 +29,6 @@
 [submodule "pack/my-plugins/start/yaml-vim"]
 	path = pack/my-plugins/start/yaml-vim
 	url = https://github.com/mrk21/yaml-vim.git
+[submodule "pack/my-plugins/start/ctrlsf"]
+	path = pack/my-plugins/start/ctrlsf
+	url = https://github.com/dyng/ctrlsf.vim.git

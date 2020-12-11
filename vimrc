@@ -162,3 +162,31 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 "endfunction
 "
 "au FileType go silent exe "GoGuruScope " . s:go_guru_scope_from_git_root()
+"
+
+" Custom mappings
+nmap <F1> :GoTest<CR>
+nmap <F2> :GoTestFunc<CR>
+nmap <F3> :vimgrep /<C-R><C-W>/ **/*.go<CR> :copen<CR>
+nmap <F4> :GoCoverageToggle<CR>
+
+" Close quickfix & location list
+noremap <Leader>c :ccl <bar> lcl<CR>
+
+let g:detect_mod_reg_state = -1
+function! DetectRegChangeAndUpdateMark()
+    let current_small_register = getreg('"-')
+    let current_mod_register = getreg('""')
+    if g:detect_mod_reg_state != current_small_register ||
+                \ g:detect_mod_reg_state != current_mod_register
+        normal! mM
+        let g:detect_mod_reg_state = current_small_register
+    endif
+endfunction
+
+" Mark I at the position where the last Insert mode occured across the buffer
+autocmd InsertLeave * execute 'normal! mI'
+
+" Mark M at the position when any modification happened in the Normal or Insert mode
+autocmd CursorMoved * call DetectRegChangeAndUpdateMark()
+autocmd InsertLeave * execute 'normal! mM'

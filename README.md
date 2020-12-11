@@ -12,5 +12,5 @@ git commit
 
 ## Add submodule
 ```
-git submodule add submodule_url pack/my-plugins/start/vim-airline
+git submodule add submodule_url pack/my-plugins/start/module-name
 ```

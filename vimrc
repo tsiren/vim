@@ -55,7 +55,6 @@ autocmd VimEnter * exe 2 . "wincmd w"
 " autoclose nerdtree if only window left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <F9> :NERDTreeFind<CR>
-map <F8> :NERDTreeRefreshRoot<CR>
 map <F12> :NERDTreeToggle<CR>
 
 
@@ -169,6 +168,30 @@ nmap <F1> :GoTest<CR>
 nmap <F2> :GoTestFunc<CR>
 nmap <F3> :vimgrep /<C-R><C-W>/ **/*.go<CR> :copen<CR>
 nmap <F4> :GoCoverageToggle<CR>
+nmap <F5> :GoInfo<CR>
+nmap <F6> :GoDoc<CR>
+nmap <F7> :GoDocBrowser<CR>
+nmap <F8> :build_go_files()
+
+nmap     <C-F>f <Plug>CtrlSFPrompt
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+vmap     <C-F>F <Plug>CtrlSFVwordExec
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+
+autocmd FileType go nmap <F8> :<C-u>call <SID>build_go_files()<CR>
+" Run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
 
 " Close quickfix & location list
 noremap <Leader>c :ccl <bar> lcl<CR>

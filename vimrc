@@ -60,8 +60,8 @@ autocmd vimenter * NERDTree
 autocmd VimEnter * exe 2 . "wincmd w"
 " autoclose nerdtree if only window left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-map <F9> :NERDTreeFind<CR>
-map <F12> :NERDTreeToggle<CR>
+map <Leader>z :NERDTreeFind<CR>
+map <Leader>x :NERDTreeToggle<CR>
 
 " CTRL-P plugin
 set runtimepath^=~/.vim/pack/my-plugins/start/ctrlp.vim
@@ -100,7 +100,6 @@ autocmd InsertLeave * execute 'normal! mM'
 
 " close quick-fix & location list
 nnoremap <silent> <leader>c :cclose<CR>:lclose<CR>:pc<CR>
-" noremap <Leader>c :ccl <bar> lcl<CR>
 
 " vim-go 
 "
@@ -109,17 +108,7 @@ let g:go_auto_type_info = 1
 let g:go_doc_popup_window = 1
 
 let g:go_addtags_transform = "camelcase"
-"
-" Fix vim-go GoCallers to search subpackages
-"function! s:go_guru_scope_from_git_root()
-"  let gitroot = system("git rev-parse --show-toplevel | tr -d '\n'")
-"  let pattern = escape(go#util#gopath() . "/src/", '\ /')
-"  return substitute(gitroot, pattern, "", "") . "/... -vendor/"
-"endfunction
-"
-"au FileType go silent exe "GoGuruScope " . s:go_guru_scope_from_git_root()
-"
-"
+
 " Run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
   let l:file = expand('%')
@@ -132,7 +121,6 @@ endfunction
 
 " Common Go commands
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-"au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>r <Plug>(go-referrers)
 au FileType go nmap <leader>k <Plug>(go-coverage-toggle)
 au FileType go nmap <leader>t <Plug>(go-test)
@@ -141,3 +129,20 @@ au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <Leader>d <Plug>(go-doc)
 au FileType go nmap <Leader>a <Plug>(go-alternate-edit)
+
+let g:go_debug_mappings = {
+      \ '(go-debug-continue)': {'key': 'c', 'arguments': '<nowait>'},
+      \ '(go-debug-next)': {'key': 'n', 'arguments': '<nowait>'},
+      \ '(go-debug-step)': {'key': 's'},
+      \ '(go-debug-stepout)': {'key': 'r'},
+      \ '(go-debug-print)': {'key': 'p'},
+  \}
+
+map <leader>ds :GoDebugStart<cr>
+map <leader>dh :GoDebugStop<cr>
+map <leader>db :GoDebugBreakpoint<cr>
+map <leader>dt :GoDebugTest<cr>
+map <leader>dtf :GoDebugTestFunc<cr>
+
+" disable rpc spam
+let g:go_debug_log_output = 'debugger'

@@ -5,8 +5,10 @@ filetype plugin indent on
 "set tags=~/mytags
 packadd! dracula-theme
 colo dracula 
+set relativenumber
 set number
 set hlsearch
+set incsearch
 " Enable jumplist when file has been changed
 set hidden
 let mapleader=","
@@ -46,6 +48,8 @@ set tags=./tags,tags
 
 :nmap <c-s> :w<CR>
 :imap <c-s> <Esc>:w<CR>a
+set langmap=öäÖÄ;{}[]
+
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
 silent !stty -ixon
 " Restore default behaviour when leaving Vim.
@@ -100,6 +104,8 @@ autocmd InsertLeave * execute 'normal! mM'
 
 " close quick-fix & location list
 nnoremap <silent> <leader>c :cclose<CR>:lclose<CR>:pc<CR>
+" map Ctrl-l to clear search highlight
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 " vim-go 
 "
